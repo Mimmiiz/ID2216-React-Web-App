@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.Navbar {
+  overflow: hidden;
+  position: absolute;
+  table-layout: fixed;
+  display:table;
+  width: 100%;
+  height: 76px;
+  bottom:0;
+
+  background: #555555;
+  mix-blend-mode: darken;
+}
+
+.Navbar a {
+  display: table-cell;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  padding-top: 22px;
+}
+
+.Navbar a:first-child {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.Navbar a:last-child {
+  padding-right: 20px;
+  text-align: right;
+}

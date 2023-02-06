@@ -13,7 +13,7 @@ const Checkout = () => {
 
     const navigate = useNavigate();
 
-    const handleOnClick = useCallback(() => navigate('/confirmation', {replace: true}), [navigate]);
+    const handleOnClick = () => navigate('/confirmation');
 
     console.log(firstName);
 

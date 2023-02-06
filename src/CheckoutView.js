@@ -1,12 +1,14 @@
-import React, {useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 /* The checkout page that shows the order details etc.*/
 function CheckoutView({firstName, setFirstName, lastName, setLastName, email, setEmail, phoneNumber, setPhoneNumber, address, setAddress, postalCode, setPostalCode, city, setCity, handleOnClick}) {
     return (
         <div className="Checkout"> 
             <div className="backArrowBox">
-                <object className="backArrow" data="arrow.svg" width="27" height="27"> </object>
+            <Link className="link" to="/service-persons-details">
+                <img className="backArrow" src="arrow.svg" alt="Back" width="27" height="27"/>
+            </Link>
             </div>
             <div className="item item-1"><h1>Checkout</h1></div>  
             <div className="item item-2">

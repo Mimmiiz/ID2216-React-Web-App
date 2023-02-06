@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import React from 'react';
 import './App.css';
 import Home from './Home';
-import Checkout from './Checkout';
+import CheckoutView from './CheckoutView';
 import Confirmation from './Confirmation';
 import Services from './Services';
 import ServicePersonList from './ServicePersonList';
 import ServicePersonDetails from './ServicePersonDetails';
 import {Routes, Route} from 'react-router-dom';
+import Checkout from './Checkout';
 
 function App() {
   return (

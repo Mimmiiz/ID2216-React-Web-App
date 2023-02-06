@@ -73,7 +73,25 @@ body {
 }
 
 .Checkout {
-  padding: 10px;
+  display: grid;
+  grid-template-columns: 5px 1fr 1fr 5px;
+  justify-content: center;
+  grid-gap: 5px;
+}
+
+.item-1, .item-2, .item-5, .item-6, .item-7, .item-8, .item-9 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.item-3 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.item-4 {
+    grid-column-start: 3;
+    grid-column-end: 4;
 }
 
 .firstNameLabel, .lastNameLabel, .emailLabel, .phoneNumberLabel, .addressLabel, .postalCodeLabel, .cityLabel {
@@ -81,22 +99,6 @@ body {
   text-align: left;
   margin-top: 5px;
   margin-left: 15px;
-}
-
-.emailInput, .phoneNumberInput, .addressInput, .postalCodeInput, .cityInput {
-  display: block;
-}
-
-.box-separator {
-  width: 10px;
-}
-
-.nameBox {
-  width: 50%;
-}
-
-.form-row {
-  display: flex;
 }
 
 .firstNameInput, .lastNameInput, .emailInput, .phoneNumberInput, .addressInput, .postalCodeInput, .cityInput {

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 function CheckoutView({firstName, setFirstName, lastName, setLastName, email, setEmail, phoneNumber, setPhoneNumber, address, setAddress, postalCode, setPostalCode, city, setCity, handleOnClick}) {
     return (
         <div className="Checkout"> 
-            <div className="item item-1"><h1>Checkout</h1></div>  
-            <div className="item item-2">
+            <div className="checkout-item checkout-item-1"><h1>Checkout</h1></div>  
+            <div className="checkout-item checkout-item-2">
                 <div className="serviceDescription">
                     <h3>Service Description</h3>
                     <h3>Person providing the service</h3>
@@ -14,8 +14,8 @@ function CheckoutView({firstName, setFirstName, lastName, setLastName, email, se
                     <div><p>Total cost: </p><p>XX SEK</p></div>
                 </div>
             </div>
-            <div className="item item-2"><h3>Contact and Address Information</h3></div>
-            <div className="item item-3">
+            <div className="checkout-item checkout-item-3"><h3>Contact and Address Information</h3></div>
+            <div className="checkout-item checkout-item-4">
                 <label className="firstNameLabel" htmlFor="firstName">First name</label>
                 <input
                     className="firstNameInput" 
@@ -26,7 +26,7 @@ function CheckoutView({firstName, setFirstName, lastName, setLastName, email, se
                     onChange = {(event) => setFirstName(event.target.value)}>
                 </input>
             </div>
-            <div className="item item-4">
+            <div className="checkout-item checkout-item-5">
                 <label className="lastNameLabel" htmlFor="lastName">Last name</label>
                 <input
                     className="lastNameInput" 
@@ -38,7 +38,7 @@ function CheckoutView({firstName, setFirstName, lastName, setLastName, email, se
                 </input>
             </div>
 
-            <div className="item item-5">
+            <div className="checkout-item checkout-item-6">
                 <label className="addressLabel" htmlFor="address">Address</label>
                 <input
                     className="addressInput" 
@@ -49,7 +49,7 @@ function CheckoutView({firstName, setFirstName, lastName, setLastName, email, se
                     onChange = {(event) => setAddress(event.target.value)}>
                 </input>
             </div>
-            <div className="item item-6">
+            <div className="checkout-item checkout-item-7">
                 <label className="postalCodeLabel" htmlFor="postalCode">Postal code</label>
                 <input
                     className="postalCodeInput" 
@@ -60,7 +60,7 @@ function CheckoutView({firstName, setFirstName, lastName, setLastName, email, se
                     onChange = {(event) => setPostalCode(event.target.value)}>
                 </input>
             </div>
-            <div className="item item-7">
+            <div className="checkout-item checkout-item-8">
                 <label className="cityLabel" htmlFor="city">City</label>
                 <input
                     className="cityInput" 
@@ -71,7 +71,7 @@ function CheckoutView({firstName, setFirstName, lastName, setLastName, email, se
                     onChange = {(event) => setCity(event.target.value)}>
                 </input>
             </div>
-            <div className='item item-8'>
+            <div className='checkout-item checkout-item-9'>
                 <label className="emailLabel" htmlFor="email">Email</label>
                 <input
                     className="emailInput" 
@@ -82,7 +82,7 @@ function CheckoutView({firstName, setFirstName, lastName, setLastName, email, se
                     onChange = {(event) => setEmail(event.target.value)}>
                 </input>
             </div>
-            <div className="item item-9">
+            <div className="checkout-item checkout-item-10">
                 <label className="phoneNumberLabel" htmlFor="phoneNumber">Phone number</label>
                 <input
                     className="phoneNumberInput" 
@@ -93,7 +93,7 @@ function CheckoutView({firstName, setFirstName, lastName, setLastName, email, se
                     onChange = {(event) => setPhoneNumber(event.target.value)}>
                 </input>
             </div>
-            <div className="item item-10">
+            <div className="checkout-item checkout-item-11">
                 <button 
                     className="confirmButton" 
                     onClick={handleOnClick}>

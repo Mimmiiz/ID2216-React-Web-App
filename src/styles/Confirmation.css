@@ -1,0 +1,35 @@
+.Confirmation {
+    display: grid;
+    grid-template-columns: 5px 1fr 5px;
+    justify-content: center;
+    grid-gap: 5px;
+
+}
+
+.confirmation-item {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.confirmation-item-1 {
+    height: 25vh;
+}
+
+.homeButton {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 50%;
+    background: #555555;
+    mix-blend-mode: darken;
+    font-size: 16px;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    max-width: 250px;
+}
+
+.homeButtonLink {
+    text-decoration: none;
+}
+

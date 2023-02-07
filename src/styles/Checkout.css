@@ -1,23 +1,25 @@
 .Checkout {
     display: grid;
-    grid-template-columns: 5px 1fr 1fr 5px;
+    grid-template-columns: minmax(1fr, 500px) minmax(1fr, 500px);
     justify-content: center;
     grid-gap: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   
-  .item-1, .item-2, .item-5, .item-6, .item-7, .item-8, .item-9, .item-10 {
-      grid-column-start: 2;
-      grid-column-end: 4;
-  }
-  
-  .item-3 {
-      grid-column-start: 2;
+  .checkout-item-1, .checkout-item-2, .checkout-item-3, .checkout-item-6, .checkout-item-7, .checkout-item-8, .checkout-item-9, .checkout-item-10, .checkout-item-11 {
+      grid-column-start: 1;
       grid-column-end: 3;
   }
   
-  .item-4 {
-      grid-column-start: 3;
-      grid-column-end: 4;
+  .checkout-item-4 {
+      grid-column-start: 1;
+      grid-column-end: 2;
+  }
+  
+  .checkout-item-5 {
+      grid-column-start: 2;
+      grid-column-end: 3;
   }
   
   .firstNameLabel, .lastNameLabel, .emailLabel, .phoneNumberLabel, .addressLabel, .postalCodeLabel, .cityLabel {
@@ -67,6 +69,7 @@
     padding: 12px;
     border-radius: 20px;
     border: none;
+    max-width: 250px;
   }
   
   

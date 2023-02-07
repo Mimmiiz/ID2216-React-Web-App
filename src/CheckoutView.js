@@ -5,17 +5,16 @@ import { Link } from 'react-router-dom';
 function CheckoutView({firstName, setFirstName, lastName, setLastName, email, setEmail, phoneNumber, setPhoneNumber, address, setAddress, postalCode, setPostalCode, city, setCity, handleOnClick}) {
     return (
         <div className="Checkout"> 
-            <div className="backArrowBox">
-            <Link className="link" to="/service-persons-details">
-                <img className="backArrow" src="arrow.svg" alt="Back" width="27" height="27"/>
-            </Link>
-            </div>
             <div className="item item-1"><h1>Checkout</h1></div>  
             <div className="item item-2">
                 <div className="serviceDescription">
-                    <p>This is the service description</p>
+                    <h3>Service Description</h3>
+                    <h3>Person providing the service</h3>
+                    <h3>Contact information</h3>
+                    <div><p>Total cost: </p><p>XX SEK</p></div>
                 </div>
             </div>
+            <div className="item item-2"><h3>Contact and Address Information</h3></div>
             <div className="item item-3">
                 <label className="firstNameLabel" htmlFor="firstName">First name</label>
                 <input

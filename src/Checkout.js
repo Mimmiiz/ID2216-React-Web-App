@@ -1,6 +1,8 @@
 import { useState, createElement, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CheckoutView from './CheckoutView';
+import './styles/Checkout.css';
+import { Link } from 'react-router-dom';
 
 const Checkout = () => {
     const [firstName, setFirstName] = useState("");
@@ -33,7 +35,8 @@ const Checkout = () => {
         setEmail: email => setEmail(email),
         setPhoneNumber: phoneNumber => setPhoneNumber(phoneNumber),
         handleOnClick: handleOnClick,
-    })
+        }
+    )
 }
 
 export default Checkout;

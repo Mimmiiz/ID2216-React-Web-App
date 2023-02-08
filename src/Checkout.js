@@ -1,5 +1,5 @@
 import { useState, createElement, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CheckoutView from './CheckoutView';
 import './styles/Checkout.css';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ const Checkout = () => {
     const [city, setCity] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+    const location = useLocation();
 
     const navigate = useNavigate();
 
@@ -20,6 +21,7 @@ const Checkout = () => {
     console.log(firstName);
 
     return createElement(CheckoutView, {
+        serviceDescription: location.state,
         firstName: firstName,
         lastName: lastName,
         address: address,

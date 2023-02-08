@@ -2,17 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 /* The checkout page that shows the order details etc.*/
-function CheckoutView({firstName, setFirstName, lastName, setLastName, email, setEmail, phoneNumber, setPhoneNumber, address, setAddress, postalCode, setPostalCode, city, setCity, handleOnClick}) {
+function CheckoutView({serviceDescription, firstName, setFirstName, lastName, setLastName, email, setEmail, phoneNumber, setPhoneNumber, address, setAddress, postalCode, setPostalCode, city, setCity, handleOnClick}) {
+    
+    /* If no person is selected */
+    if (serviceDescription === null) {
+        serviceDescription = {name: "", service: "", price: 0, stars: 0, phoneNumber: ""};
+    }
+
     return (
         <div className="Checkout"> 
             <div className="checkout-item checkout-item-1"><h1>Checkout</h1></div>  
             <div className="checkout-item checkout-item-2">
                 <div className="serviceDescription">
-                    <div className="serviceDescription-item serviceDescription-item-1"><h3>Service Description</h3></div>
-                    <div className="serviceDescription-item serviceDescription-item-2"><h3>Person providing the service</h3></div>
-                    <div className="serviceDescription-item serviceDescription-item-3"><h3>Contact information</h3></div>
+                    <div className="serviceDescription-item serviceDescription-item-1"><h3>Service Description</h3>{serviceDescription.service}</div>
+                    <div className="serviceDescription-item serviceDescription-item-2"><h3>Person providing the service</h3>{serviceDescription.name}</div>
+                    <div className="serviceDescription-item serviceDescription-item-3"><h3>Contact information</h3>{serviceDescription.phoneNumber}</div>
                     <div className="serviceDescription-item checkoutTotal">Total:</div>
-                    <div className="serviceDescription-item checkoutCost">250 SEK</div>
+                    <div className="serviceDescription-item checkoutCost">{serviceDescription.price} SEK</div>
                 </div>
             </div>
             <div className="checkout-item checkout-item-3"><h3>Contact and Address Information</h3></div>

@@ -8,10 +8,11 @@ function CheckoutView({firstName, setFirstName, lastName, setLastName, email, se
             <div className="checkout-item checkout-item-1"><h1>Checkout</h1></div>  
             <div className="checkout-item checkout-item-2">
                 <div className="serviceDescription">
-                    <h3>Service Description</h3>
-                    <h3>Person providing the service</h3>
-                    <h3>Contact information</h3>
-                    <div><p>Total cost: </p><p>XX SEK</p></div>
+                    <div className="serviceDescription-item serviceDescription-item-1"><h3>Service Description</h3></div>
+                    <div className="serviceDescription-item serviceDescription-item-2"><h3>Person providing the service</h3></div>
+                    <div className="serviceDescription-item serviceDescription-item-3"><h3>Contact information</h3></div>
+                    <div className="serviceDescription-item checkoutTotal">Total:</div>
+                    <div className="serviceDescription-item checkoutCost">250 SEK</div>
                 </div>
             </div>
             <div className="checkout-item checkout-item-3"><h3>Contact and Address Information</h3></div>

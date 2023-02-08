@@ -21,7 +21,7 @@
       grid-column-start: 2;
       grid-column-end: 3;
   }
-  
+
   .firstNameLabel, .lastNameLabel, .emailLabel, .phoneNumberLabel, .addressLabel, .postalCodeLabel, .cityLabel {
     display: block;
     text-align: left;
@@ -46,9 +46,9 @@
   .serviceDescription {
     width: 100%;
     padding-top: 2px;
-    padding-left: 10px;
-    padding-bottom: 2px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
     background: #FFFFFF;
     box-sizing: border-box;
     opacity: 0.7;
@@ -56,6 +56,29 @@
     border-radius: 20px;
     font-size: 16px;
     text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .serviceDescription-item-1, .serviceDescription-item-2, .serviceDescription-item-3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .checkoutTotal {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .checkoutCost {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
   }
   
   .confirmButton {

@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import SearchBar from "./components/SearchBar";
+import PostYourBusiness from "./components/PostYourBusiness";
+import BookingScreen from "./components/BookingScreen";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+       <Route path="/" element={<SearchBar />} />
+       <Route path="/PostYourBusiness" element={<PostYourBusiness />} />
+       <Route path="/BookingScreen" element={<BookingScreen />} />
+    </Routes>
+
+ //   <div className="App">
+ //      <SearchBar/>
+ //<button onClick={() => navigate('PostYourBusiness')}>PostYourBusiness</button>
+ //   </div>
+ //<TouchableOpacity style={styles.buttonText}>
+ //     <Text style={styles.labelService}>Post your business</Text>
+ //    </TouchableOpacity>
   );
 }
 

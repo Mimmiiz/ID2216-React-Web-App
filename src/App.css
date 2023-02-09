@@ -39,13 +39,12 @@
 
 .Navbar {
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   table-layout: fixed;
   display:table;
   width: 100%;
   height: 76px;
   bottom:0;
-
   background: #555555;
   mix-blend-mode: darken;
 }
@@ -66,4 +65,19 @@
 .Navbar a:last-child {
   padding-right: 20px;
   text-align: right;
+}
+.PersonBlock {
+  float: left;
+    display: inline;
+    margin-top: 20;
+    margin-left: 5px;
+}
+.testIMG {
+  float: left;
+  display: inline;
+  margin-top: 0;
+  margin-left: 5px;
+}
+a img {
+  border: none
 }

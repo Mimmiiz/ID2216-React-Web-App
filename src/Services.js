@@ -28,6 +28,7 @@ function Services() {
     return (
         <div className="Services">
             {rows}
+            <div className="footer"></div>
             <Navbar/>
         </div>
     )

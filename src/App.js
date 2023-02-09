@@ -16,7 +16,7 @@ function App() {
         <Route exact path='/' element={<Home/>} />
         <Route exact path='/services' element={<Services/>} />
         <Route exact path='/service-persons' element={<ServicePersonList/>} />
-        <Route exact path='/service-persons-details' element={<ServicePersonDetails/>} />
+        <Route exact path='/service-persons-details' element={<React.Fragment><BackArrow linkTo={"/service-persons"}/><ServicePersonDetails/></React.Fragment>} />
         <Route exact path='/checkout' element={<React.Fragment><BackArrow linkTo={"/service-persons-details"}/><Checkout/></React.Fragment>} />
         <Route exact path='/confirmation' element={<Confirmation/>} />
       </Routes>

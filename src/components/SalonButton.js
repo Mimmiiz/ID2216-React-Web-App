@@ -1,22 +1,24 @@
 import React, {} from 'react';
 import { View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SalonButton = () => {
-  const navigate = useNavigate();
 
   return (
     <View style={styles.container}>
     <Text style={styles.labelService}><h2>Services</h2></Text>
     <View style={styles.row}>
+    <Link to="/services" state = {{subcategories: ["Men's Salon", "Women's Salon", "SPA & Massage", "Facial & Clean-ups"]}} >
     <TouchableOpacity style={styles.button}>
       <Image
         style={styles.image}
         source={require('../images/salon.jpeg')}
         resizeMode="cover"
       />
-      <button onClick={() => navigate('BookingScreen')}><Text style={styles.label}>Salon</Text></button>
+        <Text style={styles.label}>Salon</Text>
     </TouchableOpacity>
+    </Link>
+    <Link to="/services" state = {{subcategories: ["Appliances", "Switch & Socket", "Wiring", "Light"]}} >
      <TouchableOpacity style={styles.button}>
      <Image
        style={styles.image}
@@ -25,9 +27,11 @@ const SalonButton = () => {
      />
       <Text style={styles.label}>Electrician</Text>
    </TouchableOpacity>
+   </Link>
    </View>
    <View style={styles.spacer} />
    <View style={styles.row}>
+   <Link to="/services" state = {{subcategories: ["Drainage Pipes", "Basin & Toilets", "Bath & Water Fittings", "Grouting"]}} >
    <TouchableOpacity style={styles.button}>
      <Image
        style={styles.image}
@@ -36,6 +40,8 @@ const SalonButton = () => {
      />
       <Text style={styles.label}>Plumber</Text>
    </TouchableOpacity>
+   </Link>
+   <Link to="/services" state = {{subcategories: ["Baby Sitting", "Furniture Repair", "Drilling", "Furniture Assembly"]}} >
    <TouchableOpacity style={styles.button}>
      <Image
        style={styles.image}
@@ -44,6 +50,7 @@ const SalonButton = () => {
      />
       <Text style={styles.label}>Others</Text>
    </TouchableOpacity>
+   </Link>
    </View>
    </View>
     
@@ -56,7 +63,7 @@ const styles = StyleSheet.create({
     container:{
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         width: '100%',
         padding: 30,
         backgroundColor: '#F2F2F2',
@@ -64,7 +71,7 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         width: '100%',
     },
     spacer: {

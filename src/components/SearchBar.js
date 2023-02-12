@@ -1,60 +1,24 @@
-import React, { useState } from 'react';
-import { View, SafeAreaView, TextInput, 
-  FlatList, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React from 'react';
+import { View, SafeAreaView, 
+  Text, StyleSheet} from 'react-native';
 import SalonButton from './SalonButton';
 import NavigationBar from './NavigationBar';
 import { useNavigate } from 'react-router-dom';
-
-const locations = [
-  'T-Centralen',
-  'Solna',
-  'Kista',
-  'Akala',
-  'Sodertalje',
-  'Stadion',
-];
+import CitySelector from './CitySelector';
 
 
 
 const SearchBar = () => {
   const navigate = useNavigate ();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showList, setShowList] = useState(false);
-
-  const filteredlocations = locations.filter(
-    location =>
-      location.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
-  );
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Search Location"
-        value={searchTerm}
-        onChangeText={text => {
-          setSearchTerm(text);
-          setShowList(text.length > 0);
-        }}
-      />
-      {showList && (
-        <FlatList
-          data={filteredlocations}
-          keyExtractor={item => item}
-          renderItem={({ item }) => (
-            <Text style={styles.item} onPress={() => setSearchTerm(item)}>
-              {item}
-            </Text>
-          )}
-        />
-      )}
+      <CitySelector></CitySelector>
       <View style={styles.spacer} />
      <SalonButton></SalonButton>
      <View style={styles.spacer} />
-      <TouchableOpacity style={styles.buttonText}>
-      <button onClick={() => navigate('PostYourBusiness')}><Text style={styles.labelService}>Post your business</Text></button>
-     </TouchableOpacity>
+      <button onClick={() => navigate('PostYourBusiness')} style={styles.buttonText}><Text style={styles.labelService}>Post your business</Text></button>
      <View style={styles.spacer} />
 
      <NavigationBar></NavigationBar>
@@ -70,7 +34,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '95%',
+    width: '100%',
     padding: 30,
     backgroundColor: '#F2F2F2',
   },

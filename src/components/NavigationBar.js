@@ -11,12 +11,12 @@ const NavigationBar = () => {
       <TouchableOpacity style={styles.bottomNavbarItem} >
         <Text style={styles.bottomNavbarItemText}>Menu</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.bottomNavbarItem}>
+      {/* <TouchableOpacity style={styles.bottomNavbarItem}>
         <Text style={styles.bottomNavbarItemText}>Bookings</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.bottomNavbarItem}>
         <Text style={styles.bottomNavbarItemText}>Settings</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };
@@ -24,6 +24,7 @@ const NavigationBar = () => {
 const styles = StyleSheet.create({
   bottomNavbar: {
     height: 40,
+    width:'100%',
     backgroundColor: 'black',
     flexDirection: 'row',
     alignItems: 'center',
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
   },
   bottomNavbarItem: {
     alignItems: 'center',
-    width: 150,
+    width: '100%',
   },
   bottomNavbarItemText: {
     fontSize: 17,

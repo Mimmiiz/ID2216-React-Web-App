@@ -1,115 +1,123 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, TextInput, 
-  FlatList, Text, StyleSheet } from 'react-native';
-
-  const typeofservice = [
-    'Plumber',
-    'Electrician',
-    'Salon',
-    'Baby Sitting',
-  ];
+import { View, SafeAreaView, TextInput,  Text, StyleSheet } from 'react-native';
+import BusinessSelector from './BusinessSelector';
+import { useNavigate } from 'react-router-dom';
   
 
   const PostYourBusiness = () => {
-    
-    const [searchTerm, setSearchTerm] = useState('');
-    const [showList, setShowList] = useState(false);
+    const navigate = useNavigate ();
   
-    const typeofservicefiltered = typeofservice.filter(
-      tos =>
-        tos.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
-    );
 
-    const [inputValue, setInputValue] = useState('');
+    const [inputValueDescription, setInputValueDescription] = useState('');
+    const [inputValueServiceProvider, setInputValueServiceProvider] = useState('');
+    const [inputValueAddress, setInputValueAddress] = useState('');
+    const [inputValuePhone, setInputValuePhone] = useState('');
+    const [inputValueAmount, setInputValueAmount] = useState('');
+    const [inputValueEmail, setInputValueEmail] = useState('');
+    
+    
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
     <View style={styles.container}>
     <Text style={styles.labelService}><h2>Post Your Business</h2></Text>
-    <View style={styles.spacer} />
+      <BusinessSelector></BusinessSelector>
       <TextInput
-        style={styles.input}
-        placeholder="Name of the Service"
-        value={searchTerm}
-        onChangeText={text => {
-          setSearchTerm(text);
-          setShowList(text.length > 0);
-        }}
-      />
-      {showList && (
-        <FlatList
-          data={typeofservicefiltered}
-          keyExtractor={item => item}
-          renderItem={({ item }) => (
-            <Text style={styles.item} onPress={() => setSearchTerm(item)}>
-              {item}
-            </Text>
-          )}
-        />
-      )}
-      <View style={styles.spacer} />
-      <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 3 }}
+        style={styles.inputboxDesc}
         placeholder="Description of service"
         onChangeText={text => {
           if (text.length <= 250) {
-            setInputValue(text);
+            setInputValueDescription(text);
           }
         }}
-        value={inputValue}
+        value={inputValueDescription}
         maxLength={250}
       />
       <Text>
-        {250 - inputValue.length} characters remaining
+        {250 - inputValueDescription.length} characters remaining
       </Text>
 
     <View style={styles.spacer} />
       <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 3 }}
+        style={styles.inputbox}
         placeholder="Name of person providing service"
         onChangeText={text => {
           if (text.length <= 30) {
-            setInputValue(text);
+            setInputValueServiceProvider(text);
           }
         }}
-        value={inputValue}
+        value={inputValueServiceProvider}
         maxLength={30}
       />
       <Text>
-        {30 - inputValue.length} characters remaining
+        {30 - inputValueServiceProvider.length} characters remaining
       </Text>
 
       <View style={styles.spacer} />
       <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 3 }}
+        style={styles.inputbox}
         placeholder="Enter Address"
         onChangeText={text => {
           if (text.length <= 50) {
-            setInputValue(text);
+            setInputValueAddress(text);
           }
         }}
-        value={inputValue}
+        value={inputValueAddress}
         maxLength={50}
       />
       <Text>
-        {50 - inputValue.length} characters remaining
+        {50 - inputValueAddress.length} characters remaining
       </Text>
 
       <View style={styles.spacer} />
       <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 3}}
+        style={styles.inputbox}
         placeholder="Enter Phone Number"
         onChangeText={text => {
           if (text.length <= 10) {
-            setInputValue(text);
+            setInputValuePhone(text);
           }
         }}
-        value={inputValue}
+        value={inputValuePhone}
         maxLength={10}
       />
       <Text>
-        {10 - inputValue.length} characters remaining
+        {10 - inputValuePhone.length} characters remaining
       </Text>
+      <View style={styles.spacer} />
+
+      <TextInput
+        style={styles.inputbox}
+        placeholder="Enter Email Address"
+        onChangeText={text => {
+          if (text.length <= 50) {
+            setInputValueEmail(text);
+          }
+        }}
+        value={inputValueEmail}
+        maxLength={50}
+      />
+      <Text>
+        {50 - inputValueEmail.length} characters remaining
+      </Text>
+      <View style={styles.spacer} />
+
+      <TextInput
+        style={styles.inputbox}
+        placeholder="Enter Amount"
+        onChangeText={text => {
+          if (text.length <= 10) {
+            setInputValueAmount(text);
+          }
+        }}
+        value={inputValueAmount}
+        maxLength={10}
+      />
+      <Text>
+        {10 - inputValueAmount.length} characters remaining
+      </Text>
+      <View style={styles.spacer} />
+      <button onClick={() => navigate('OrderConfirmation')} style={styles.buttonText}><Text style={styles.confirmButton}>Confirm</Text></button>
 
     </View>
     </SafeAreaView>
@@ -122,16 +130,16 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      width: '95%',
+      width: '100%',
       padding: 30,
       backgroundColor: '#F2F2F2',
     },
     spacer: {
-      height: 60,
+      height: 40,
     },
     labelService: {
         backgroundColor: '#F0EEEE',
-        borderRadius: 5,
+        borderRadius: 45,
         fontSize: 20,
         fontWeight: 'bold'
     },
@@ -141,6 +149,52 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         width: '100%',
     },
+    inputbox: {
+      height: 40,
+      width: '100%',
+      borderColor: 'gray', 
+      borderWidth: 3,
+      borderRadius: 45,
+      fontSize: 15,
+      alignItems: 'center',
+      textAlign: 'center',
+    },
+    inputboxDesc: {
+      height: 100,
+      width: '100%',
+      borderColor: 'gray', 
+      borderWidth: 3,
+      borderRadius: 45,
+      fontSize: 15,
+      alignItems: 'center',
+      textAlign: 'center',
+
+    },
+    input: {
+      marginHorizontal: 30,
+      backgroundColor: 'white',
+      height: 50,
+      borderRadius: 50,
+      paddingHorizontal: 100,
+      fontSize: 15,
+      fontWeight: 'bold',
+      alignItems: 'center',
+      textAlign: 'center',
+    },
+    buttonText: {
+      backgroundColor: '#333',
+      padding: 10,
+      borderRadius: 40,
+      alignItems: 'center',
+      width: '100',
+    },
+    confirmButton: {
+      backgroundColor: '#333',
+      borderRadius: 5,
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: '#F0EEEE', 
+  },
 }
 );
   

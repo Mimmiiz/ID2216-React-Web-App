@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component, List } from 'react';
 import Navbar from './Navbar';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { createRef, useEffect, useState } from "react";
 import "./index.css";
@@ -145,6 +145,7 @@ export default class ServicePersonList extends React.Component {
           }}
         />
       </div>
+      <div style={{height:'56px'}}></div>
       <Navbar/>
       </div>
       

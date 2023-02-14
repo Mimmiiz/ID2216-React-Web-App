@@ -1,8 +1,7 @@
-import { useState, createElement, useCallback } from 'react';
+import { useState, createElement } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CheckoutView from './CheckoutView';
 import './styles/Checkout.css';
-import { Link } from 'react-router-dom';
 
 const Checkout = () => {
     const [firstName, setFirstName] = useState("");

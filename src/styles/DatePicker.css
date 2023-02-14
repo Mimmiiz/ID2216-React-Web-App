@@ -1,0 +1,42 @@
+
+.DatePicker {
+    border: 1px solid red;
+    border-radius: 7px;
+}
+
+.DatePickerHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.DatePickerHeader p {
+    flex: 1 0 0;
+}
+
+.DatePickerArrow {
+    cursor: pointer;
+}
+
+.DatePickerBody {
+    margin: 5px;
+}
+
+.DatePickerColumns {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.activeDay {
+    border: 1px solid gray;
+}
+
+.DatePickerAvailableTimes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.activeTime {
+    border: 1px solid gray;
+}

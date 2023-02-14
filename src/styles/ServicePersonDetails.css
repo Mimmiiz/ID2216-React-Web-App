@@ -1,8 +1,10 @@
 .ServicePersonDetails {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
     padding-left: 15px;
     padding-right: 15px;
+    max-width: 500px;
 }
 
 .details-item-1, .details-item-4, .details-item-5 {
@@ -11,14 +13,8 @@
 }
 
 .details-item-4 {
-    font-size: 16px;    
-    background: white;
-    opacity: 0.7;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
     padding: 8px;
     width: 100%;
-    height: 250px;
     box-sizing: border-box;
     margin-top: 10px;
 }
@@ -49,15 +45,10 @@
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
+    max-width: 500px;
 }
 
 .details-book-button {
-    font-size: 16px;    
-    background: #555555;
-    opacity: 0.7;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    color: white;
     padding: 8px;
     max-width: 150px;
     border: none;

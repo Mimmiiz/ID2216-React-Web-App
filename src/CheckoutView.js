@@ -14,10 +14,19 @@ function CheckoutView({serviceDescription, firstName, setFirstName, lastName, se
             <div className="checkout-item checkout-item-1"><h1>Checkout</h1></div>  
             <div className="checkout-item checkout-item-2">
                 <div className="box-light serviceDescription">
-                    <div className="serviceDescription-item serviceDescription-item-1"><h3>Service Description</h3>{serviceDescription.service}</div>
-                    <div className="serviceDescription-item serviceDescription-item-2"><h3>Person providing the service</h3>{serviceDescription.name}</div>
-                    <div className="serviceDescription-item serviceDescription-item-3"><h3>Contact information</h3>{serviceDescription.phoneNumber}</div>
-                    <div className="serviceDescription-item checkoutTotal">Total:</div>
+                    <div className="serviceDescription-item serviceDescription-item-1">
+                        <h3>Details</h3>
+                        <p>{serviceDescription.service}</p>
+                        <p>Date: {serviceDescription.bookedDate}</p>
+                        <p>Time: {serviceDescription.bookedTime}</p>
+                    </div>
+                    <div className="serviceDescription-item serviceDescription-item-2">
+                        <h3>Contact information</h3>
+                        <p>{serviceDescription.name}</p>
+                        <p>{serviceDescription.phoneNumber}</p>
+                    </div>
+                    {/*<div className="serviceDescription-item serviceDescription-item-3"><h3>Contact information</h3>{serviceDescription.phoneNumber}</div>
+                    */}<div className="serviceDescription-item checkoutTotal">Total:</div>
                     <div className="serviceDescription-item checkoutCost">{serviceDescription.price} SEK</div>
                 </div>
             </div>

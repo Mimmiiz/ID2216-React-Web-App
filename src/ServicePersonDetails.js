@@ -8,14 +8,22 @@ function ServicePersonDetails() {
 
     const navigate = useNavigate();
 
-    const serviceDetails = {name: "Joe Biden", service: "Men's haircut", price: 250.00, stars: 3.1, phoneNumber: "+46000000000"};
+    var serviceDetails = {name: "Joe Biden", service: "Men's haircut", 
+    description: "Includes hair wash and simple styling. Please note that the price may increase if more products or time is needed.", 
+    price: 250.00, stars: 3.1, phoneNumber: "+46000000000", bookedDate: null, bookedTime: null};
     
-    const handleOnClick = () => navigate('/checkout', {state: serviceDetails});
+    const handleOnClick = () => {
+        serviceDetails.bookedDate = bookedDate;
+        serviceDetails.bookedTime = bookedTime;
+        navigate('/checkout', {state: {serviceDetails}});
+    }
 
-    const [bookedDateTime, setBookedDateTime] = React.useState(null);
+    const [bookedDate, setBookedDate] = React.useState(null);
+    const [bookedTime, setBookedTime] = React.useState(null);
 
-    function getSelectedDateTime(dateTime) { 
-        setBookedDateTime(dateTime);  
+    function getSelectedDateTime(selectedDate, selectedTime) { 
+        setBookedDate(selectedDate);
+        setBookedTime(selectedTime); 
      }
 
 
@@ -28,17 +36,17 @@ function ServicePersonDetails() {
         x = x - 10;
         if (x < -7) {
             stars.push(
-                <object key={"star-" + i} className="star-rating" data="no-star.svg"></object>
+                <img key={"star-" + i} className="star-rating" src="no-star.svg" alt={"no-star" + i}></img>
             )
         }
         else if (x < -2) {
             stars.push(
-                <object key={"star-" + i} className="star-rating" data="half-star.svg"></object>
+                <img key={"star-" + i} className="star-rating" src="half-star.svg" alt={"half-star" + i}></img>
             )
         }
         else {
         stars.push(
-            <object key={"star-" + i} className="star-rating" data="star.svg"></object>
+            <img key={"star-" + i} className="star-rating" src="star.svg" alt={"star" + i}></img>
         )
         }
     }
@@ -47,17 +55,22 @@ function ServicePersonDetails() {
         <div className="ServicePersonDetails">
             <div className="details-item details-item-1"></div>
             <div className="details-item details-item-2">
-                <img className="profile-picture" src="avatar.svg" alt="Profile picture"/>
+                <img className="profile-picture" src="avatar.svg" alt="Avatar"/>
             </div>
             <div className="details-item details-item-3">
                 <div className="details-person-name">{serviceDetails.name}</div>
                 <div className="details-person-stars">{starsRounded} {stars}</div>
                 <div>
-                    <button className="button-dark details-book-button" onClick={handleOnClick}>Book</button>
+                    <button className="button-dark details-book-button" onClick={handleOnClick} disabled={bookedDate === null && bookedTime === null} >Book</button>
                 </div>
             </div>
-            <div className="box-light details-item details-item-4"><DatePicker getSelectedDateTime={getSelectedDateTime}/></div>
-            <div className="details-item details-item-5"> Selected time: {bookedDateTime} {serviceDetails.service} Price: {serviceDetails.price} SEK {serviceDetails.phoneNumber}</div>
+            <div className="box-light details-item details-item-4">{<DatePicker getSelectedDateTime={getSelectedDateTime}/>}</div>
+            <div className="details-item details-item-5"> 
+                <h4>{serviceDetails.service}</h4> 
+                <p>Price: {serviceDetails.price} SEK </p> 
+                <p>{serviceDetails.description}</p>
+                <p>Phone number: {serviceDetails.phoneNumber}</p>
+            </div>
             <div className="footer"></div>
         </div>
     )

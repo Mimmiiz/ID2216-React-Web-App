@@ -17,10 +17,10 @@ const Checkout = () => {
 
     const handleOnClick = () => navigate('/confirmation');
 
-    console.log(firstName);
+    console.log(location.state.serviceDetails);
 
     return createElement(CheckoutView, {
-        serviceDescription: location.state,
+        serviceDescription: location.state.serviceDetails,
         firstName: firstName,
         lastName: lastName,
         address: address,

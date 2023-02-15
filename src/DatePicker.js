@@ -12,137 +12,182 @@ const DatePicker = props => {
 
     const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+    /* Bookable times dummy data */
     const bookableTimes = {
-        Sun: ["10:00", "10:30", "14:00", "15:00"], 
-        Mon: ["10:00", "10:30", "11:00", "13:00", "13:30"], 
-        Tue: ["09:00", "10:30", "13:30", "14:00", "16:00"], 
-        Wed: ["10:00", "10:30", "14:00", "14:30", "15:00", "15:30"], 
-        Thu: ["11:00", "11:30", "14:00", "15:00"], 
-        Fri: ["08:00", "09:30", "10:00", "12:30", "17:00"], 
+        Sun: ["10:00", "10:30", "14:00", "15:00"],
+        Mon: ["10:00", "10:30", "11:00", "13:00", "13:30"],
+        Tue: ["09:00", "10:30", "13:30", "14:00", "16:00", "20:00"],
+        Wed: ["10:00", "10:30", "14:00", "14:30", "15:00", "15:30"],
+        Thu: ["11:00", "11:30", "14:00", "15:00"],
+        Fri: ["08:00", "09:30", "10:00", "12:30", "17:00"],
         Sat: ["10:00", "10:30", "11:00"]
     }
 
-    const getNumberOfDaysInMonth = (year, month) => {
-        return new Date(year, month + 1, 0).getDate();
+    const getSortedDays = () => {
+        const firstHalf = dayNames.slice(1);
+        return [...firstHalf, ...dayNames.slice(0, 1)]
     };
 
-    const getSortedDays = (year, month) => {
-        const dayIndex = new Date(year, month, 1).getDay();
-        const firstHalf = dayNames.slice(dayIndex);
-        return [...firstHalf, ...dayNames.slice(0, dayIndex)]
-    };
-
-    const getAvailableTimes = () => {
-        return bookableTimes[dayNames[selectedDate.getDay()]];
+    /* Code from: https://stackoverflow.com/a/28049628 */
+    const getFirstDayInWeek = (year, week) => {
+        var firstDay = new Date(year, 0, 1).getDay();
+        var d = new Date("Jan 01, " + year + " 01:00:00");
+        var w = d.getTime() - (3600000 * 24 * (firstDay - 1)) + 604800000 * (week - 1)
+        return new Date(w);
     }
 
-    const range = (start, end) => {
-        const length = Math.abs((end - start) / 1);
-
-        const {result} = Array.from({length}).reduce(
-            ({result, current}) => ({
-                result: [...result, current],
-                current: current + 1,
-            }), 
-            {result: [], current: start}
-        );
-
-        return result;
+    /* Code from: https://stackoverflow.com/a/28049628 */
+    const getLastDayInWeek = (year, week) => {
+        var firstDay = new Date(year, 0, 1).getDay();
+        var d = new Date("Jan 01, " + year + " 01:00:00");
+        var w = d.getTime() - (3600000 * 24 * (firstDay - 1)) + 604800000 * (week - 1)
+        return new Date(w + 518400000);
     }
 
-    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+    const getAvailableTimes = (dayName) => {
+        return bookableTimes[dayName];
+    }
+
+    const getCurrentWeek = (date) => {
+        const startDate = new Date(date.getFullYear(), 0, 1);
+        var days = Math.floor((date - startDate) /
+            (24 * 60 * 60 * 1000));
+
+        return Math.ceil(days / 7);
+    }
+
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-
-    const [selectedDate, setSelectedDate] = useState(new Date(currentYear, currentMonth, new Date().getDate()));
-    const [selectedTime, setSelectedTime] = useState(getAvailableTimes()[0]);
+    const [currentWeek, setCurrentWeek] = useState(getCurrentWeek(new Date()));
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState(null);
+    const [firstDayInWeek, setFirstDayInWeek] = useState(getFirstDayInWeek(currentYear, currentWeek));
+    const [lastDayInWeek, setLastDayInWeek] = useState(getLastDayInWeek(currentYear, currentWeek));
 
     useEffect(() => {
-        //setSelectedDate(new Date(currentYear, currentMonth, 1));
-        var year = selectedDate.toLocaleString("default", { year: "numeric" });
-        var month = selectedDate.toLocaleString("default", { month: "2-digit" });
-        var day = selectedDate.toLocaleString("default", { day: "2-digit" });
+        setSelectedDate(null);
+        setSelectedTime(null);
+        setFirstDayInWeek(getFirstDayInWeek(currentYear, currentWeek));
+        setLastDayInWeek(getLastDayInWeek(currentYear, currentWeek));
+    }, [currentWeek])
 
-        // Generate yyyy-mm-dd date string
-        var formattedDate = year + "-" + month + "-" + day;
-        props.getSelectedDateTime(formattedDate + " " + selectedTime);
-    }, [selectedDate, selectedTime]) 
+    useEffect(() => {
+        if (selectedDate && selectedTime) {
+            // Generate yyyy-mm-dd date string
+            var year = selectedDate.toLocaleString("default", { year: "numeric" });
+            var month = selectedDate.toLocaleString("default", { month: "2-digit" });
+            var day = selectedDate.toLocaleString("default", { day: "2-digit" });
 
-    const nextMonth = () => {
-        if (currentMonth < 11) {
-            setCurrentMonth((prev) => prev + 1);
+            var formattedDate = year + "-" + month + "-" + day;
+            props.getSelectedDateTime(formattedDate, selectedTime);
         } else {
-            setCurrentMonth(0);
-            setCurrentYear((prev) => prev + 1);
+            props.getSelectedDateTime(null, null);
         }
-        console.log(selectedDate);
+
+    }, [selectedDate, selectedTime])
+
+    const getDatesOfWeek = (firstDayInWeek) => {
+        var day = new Date(firstDayInWeek);
+        var dates = [];
+        for (var i = 0; i < 7; i++) {
+            dates.push(new Date(day.getTime()));
+            day.setDate(day.getDate() + 1);
+        }
+        return dates;
     }
 
-    const prevMonth = () => {
-        if (currentMonth > 0) {
-            setCurrentMonth((prev) => prev - 1)
+    const nextWeek = () => {
+        if (currentWeek < 52) {
+            setCurrentWeek((prev) => prev + 1);
         } else {
-            setCurrentMonth(11);
+            setCurrentWeek(1);
+            setCurrentYear((prev) => prev + 1);
+        }
+    }
+
+    const prevWeek = () => {
+        if (currentWeek > 1) {
+            setCurrentWeek((prev) => prev - 1);
+        } else {
+            setCurrentWeek(52);
             setCurrentYear((prev) => prev - 1);
         }
     }
 
     const handleSelection = (event) => {
-        if (event.target.id === "day") {
-            setSelectedDate(
-                new Date(
-                    currentYear, 
-                    currentMonth, 
-                    event.target.getAttribute("data-day")
-                )
-            );
-
-            console.log(selectedDate);
-        }
-    }
-
-    const handleTimeSelection = (event) => {
         if (event.target.id === "time") {
+            var date = new Date(event.target.getAttribute("data-day"));
+
+            var time = event.target.getAttribute("data-time");
+
+            var y = date.getFullYear();
+            var m = date.getMonth();
+            var d = date.getDate();
+
             setSelectedTime(event.target.getAttribute("data-time"));
+            setSelectedDate(new Date(y, m, d, parseInt(time.slice(0, 2)), parseInt(time.slice(3, 5)), 0));
         }
     }
+
+    var minDate = new Date();
+    var maxDate = new Date(2023, 3, 30);
 
     return (
         <div className='DatePicker'>
             <div className='DatePickerHeader'>
-                <img className='DatePickerArrow' src="arrow-left.svg" alt="Prev" onClick={prevMonth}></img>
-                <p>{monthNames[currentMonth]} {currentYear}</p>
-                <img className='DatePickerArrow' src="arrow-right.svg" alt="Next" onClick={nextMonth}></img>
+                <button onClick={prevWeek} disabled={minDate.getTime() > firstDayInWeek.getTime()}>
+                    <img className='DatePickerArrow noSelect' src={minDate.getTime() > firstDayInWeek.getTime() ? "disabled-arrow-left.svg" : "arrow-left.svg"} alt="Prev"></img>
+                </button>
+                <div>
+                    <p>{firstDayInWeek.getDate()} {monthNames[firstDayInWeek.getMonth()].slice(0, 3)} - {lastDayInWeek.getDate()} {monthNames[lastDayInWeek.getMonth()].slice(0, 3)} {currentYear}</p>
+                    <p>Week {currentWeek}</p>
+                </div>
+                
+                <button onClick={nextWeek} disabled={maxDate.getTime() < firstDayInWeek.getTime()}>
+                    <img className='DatePickerArrow noSelect' src={maxDate.getTime() < firstDayInWeek.getTime() ? "disabled-arrow-right.svg" : "arrow-right.svg"} alt="Next"></img>
+                </button>
             </div>
             <div className='DatePickerBody'>
-                <div className='DatePickerColumns weekdays'>
-                    {getSortedDays(currentYear, currentMonth).map((day) => 
-                        (<p key={day}>{day}</p>)
-                    )}
-                </div>
-                <div className='DatePickerColumns' onClick={handleSelection}>
-                    {range(
-                        1, 
-                        getNumberOfDaysInMonth(currentYear, currentMonth) + 1
-                        ).map((day) => (
-                            <p
-                                key={day}
-                                id="day" 
+                <div className='DatePickerColumns'>
+                    {getSortedDays().map((day) => 
+                    <div className="weekdays" key={day}>{day}</div>)}
+                    {(getDatesOfWeek(firstDayInWeek))
+                        .map((day) => (
+                            <div
+                                key={day.getDate()}
+                                id="day"
+                                className="weeknumbers"
                                 data-day={day}
-                                className={selectedDate.getTime() === new Date (currentYear, currentMonth, day).getTime() ? "activeDay" : ""}
-                                >{day}</p>
-                            ))
-                        }
+                                disabled={minDate.getTime() > new Date(day).setDate(day.getDate() + 1)}
+                                >
+                                {day.getDate()}
+                            </div>
+                        )
+                        )}
                 </div>
-                <div>Available times</div>
-                <div className='DatePickerAvailableTimes' onClick={handleTimeSelection}>
-                    {getAvailableTimes().map((time) => (
-                        <p 
-                            key={time} 
-                            id="time"
-                            data-time={time}
-                            className={selectedTime === time ? "activeTime" : ""}
-                            >{time}</p>
+                <div className='DatePickerColumns availableTimes'>
+                    {getDatesOfWeek(firstDayInWeek).map((day) => (
+                        <div
+                            key={day}
+                            className='availableTimesContainer'
+                        >
+                            {getAvailableTimes(dayNames[day.getDay()]).map((time) => (
+                                new Date().setHours(new Date().getHours() + 1) < new Date(day).setHours(parseInt(time.slice(0, 2)), parseInt(time.slice(3, 5)), 0) ?
+                            (<p
+                                
+                                key={time}
+                                id="time"
+                                data-time={time}
+                                data-day={day}
+                                onClick={handleSelection}
+                                className={
+                                    selectedDate? (selectedDate.getTime() === new Date (day).setHours(parseInt(time.slice(0, 2)), parseInt(time.slice(3, 5)), 0) ? "activeDay" : "") : ""}
+                            >
+                                {time}
+                            </p>) : null
                         ))
+                        
+                        }</div>
+                    ))
                     }
                 </div>
             </div>

@@ -8,7 +8,7 @@ function Confirmation() {
         <div className='Confirmation'>
             <div className="confirmation-item confirmation-item-1"></div>
             <div className="confirmation-item confirmation-item-2">
-                <object data="checkmark.png" width="142" height="142"></object>
+                <img src="checkmark.png" alt="OK" width="142" height="142"></img>
             </div>
             <div className="confirmation-item confirmation-item-3">
                 <h1>Order confirmed</h1>

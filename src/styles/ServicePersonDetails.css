@@ -1,0 +1,68 @@
+.ServicePersonDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.details-item-1, .details-item-4, .details-item-5 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.details-item-4 {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.details-item-5 {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.details-item-1 {
+    height: 50px;
+}
+
+.details-item-2 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding-left: 13px;
+}
+
+.details-item-2 img {
+    width: 100%;
+    max-width: 200px;
+}
+
+.details-item-3 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    max-width: 500px;
+    padding-right: 13px;
+}
+
+.details-book-button {
+    padding: 8px;
+    max-width: 150px;
+    border: none;
+    width: 50%;
+}
+
+.details-person-name {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 20%;
+}
+
+.details-person-stars {
+    font-size: 16px;
+}
+

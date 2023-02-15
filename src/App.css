@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-color: #F1EDE7;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,22 +41,99 @@
   }
 }
 
+.footer {
+  height: 90px;
+  bottom: 0;
+}
+
+.Navbar {
+  overflow: hidden;
+  position: fixed;
+  table-layout: fixed;
+  display:table;
+  width: 100%;
+  height: 56px;
+  bottom:0;
+
+  background: #555555;
+}
+
+.Navbar a {
+  display: table-cell;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  padding-top: 14px;
+}
+
+.Navbar a:first-child {
+  padding-left: 20px;
+  text-align: left;
+}
+
 .Navbar a:last-child {
   padding-right: 20px;
   text-align: right;
 }
-.PersonBlock {
-  float: left;
-    display: inline;
-    margin-top: 20;
-    margin-left: 5px;
+
+.BackArrow {
+  display: fixed;
+  border-radius:  0 0px 20px 0 !important;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 0x;
+  top: 0px;
 }
-.testIMG {
-  float: left;
-  display: inline;
-  margin-top: 0;
-  margin-left: 5px;
+
+.backArrowImg {
+  margin-top: 12px;
 }
-a img {
-  border: none
+
+.backArrowLink {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
+
+/* common styles */
+
+.button-dark {
+  background: #555555;
+  font-size: 16px;
+  color: white;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.button-dark:active {
+  background: #2e2e2e;
+}
+
+.box-light {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+  border: none;
+}
+
+.noSelect {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.noSelect:focus {
+  outline: none !important;
+}
+

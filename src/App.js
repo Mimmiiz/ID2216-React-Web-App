@@ -8,10 +8,10 @@ import ServicePersonDetails from './ServicePersonDetails';
 import {Routes, Route} from 'react-router-dom';
 import Checkout from './Checkout';
 import BackArrow from './BackArrow';
+import Navbar from './Navbar';
 import SearchBar from "./components/SearchBar";
 import PostYourBusiness from "./components/PostYourBusiness";
 import OrderConfirmation from './components/OrderConfirmation';
-
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<SearchBar />} />
         <Route exact path='/services' element={<Services/>} />
         <Route exact path='/service-persons' element={<ServicePersonList/>} />
-        <Route exact path='/service-persons-details' element={<React.Fragment><BackArrow linkTo={"/service-persons"}/><ServicePersonDetails/></React.Fragment>} />
+        <Route exact path='/service-persons-details' element={<React.Fragment><BackArrow linkTo={"/service-persons"}/><ServicePersonDetails/><Navbar/></React.Fragment>} />
         <Route exact path='/checkout' element={<React.Fragment><BackArrow linkTo={"/service-persons-details"}/><Checkout/></React.Fragment>} />
         <Route exact path='/confirmation' element={<Confirmation/>} />
         <Route path="/PostYourBusiness" element={<PostYourBusiness />} />

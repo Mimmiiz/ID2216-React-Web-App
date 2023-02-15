@@ -1,0 +1,80 @@
+
+.DatePicker button {
+    border: none;
+    outline: none;
+    background: none;
+    height: 40px;
+}
+
+.DatePickerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.DatePickerHeader p {
+    flex: 1 0 0;
+}
+
+.DatePickerArrow {
+    cursor: pointer;
+}
+
+.DatePickerBody {
+    margin: 5px;
+}
+
+.DatePickerColumns {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.DatePickerAvailableTimes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.activeTime {
+    border: 1px solid gray !important;
+    border-radius: 20px;
+}
+
+.weeknumbers, .weekdays {
+    border-left: 0.5px solid lightgray;
+    border-right: 0.5px solid lightgray;
+}
+
+.weekdays {
+    font-size: 14px;
+}
+
+.weeknumbers {
+    border-bottom:  0.5px solid lightgray;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.availableTimesContainer {
+    border-left: 0.5px solid lightgray;
+    border-right: 0.5px solid lightgray;
+    margin-bottom: 5px;
+}
+
+.availableTimes p {
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 12px;
+}
+
+.activeDay {
+    background: darkgray !important;
+}

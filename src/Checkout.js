@@ -1,8 +1,7 @@
-import { useState, createElement, useCallback } from 'react';
+import { useState, createElement } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CheckoutView from './CheckoutView';
 import './styles/Checkout.css';
-import { Link } from 'react-router-dom';
 
 const Checkout = () => {
     const [firstName, setFirstName] = useState("");
@@ -18,10 +17,10 @@ const Checkout = () => {
 
     const handleOnClick = () => navigate('/confirmation');
 
-    console.log(firstName);
+    console.log(location.state.serviceDetails);
 
     return createElement(CheckoutView, {
-        serviceDescription: location.state,
+        serviceDescription: location.state.serviceDetails,
         firstName: firstName,
         lastName: lastName,
         address: address,

@@ -6,51 +6,51 @@ const SalonButton = () => {
 
   return (
     <View style={styles.container}>
-    <Text style={styles.labelService}><h2>Services</h2></Text>
+    <Text style={styles.labelService}><h1>Services</h1></Text>
     <View style={styles.row}>
-    <Link to="/services" state = {{subcategories: ["Men's Salon", "Women's Salon", "SPA & Massage", "Facial & Clean-ups"]}} >
     <TouchableOpacity style={styles.button}>
+      <Link style={styles.link} to="/services" state={{subcategories: ["Men's Salon", "Women's Salon", "SPA & Massage", "Facial & Clean-ups"]}} >
       <Image
         style={styles.image}
         source={require('../images/salon.jpeg')}
         resizeMode="cover"
       />
-        <Text style={styles.label}>Salon</Text>
+      <Text style={styles.label}>Salon</Text>
+      </Link>
     </TouchableOpacity>
-    </Link>
-    <Link to="/services" state = {{subcategories: ["Appliances", "Switch & Socket", "Wiring", "Light"]}} >
-     <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button}>
+    <Link style={styles.link} to="/services" state = {{subcategories: ["Appliances", "Switch & Socket", "Wiring", "Light"]}} >
      <Image
        style={styles.image}
        source={require('../images/electrician.jpeg')}
        resizeMode="cover"
      />
       <Text style={styles.label}>Electrician</Text>
-   </TouchableOpacity>
    </Link>
+   </TouchableOpacity>
    </View>
    <View style={styles.spacer} />
    <View style={styles.row}>
-   <Link to="/services" state = {{subcategories: ["Drainage Pipes", "Basin & Toilets", "Bath & Water Fittings", "Grouting"]}} >
    <TouchableOpacity style={styles.button}>
+   <Link style={styles.link} to="/services" state = {{subcategories: ["Drainage Pipes", "Basin & Toilets", "Bath & Water Fittings", "Grouting"]}} >
      <Image
        style={styles.image}
        source={require('../images/plumber.jpeg')}
        resizeMode="cover"
      />
       <Text style={styles.label}>Plumber</Text>
-   </TouchableOpacity>
    </Link>
-   <Link to="/services" state = {{subcategories: ["Baby Sitting", "Furniture Repair", "Drilling", "Furniture Assembly"]}} >
+   </TouchableOpacity>
    <TouchableOpacity style={styles.button}>
+   <Link style={styles.link} to="/services" state = {{subcategories: ["Baby Sitting", "Furniture Repair", "Drilling", "Furniture Assembly"]}} >
      <Image
        style={styles.image}
        source={require('../images/others.jpeg')}
        resizeMode="cover"
      />
       <Text style={styles.label}>Others</Text>
-   </TouchableOpacity>
    </Link>
+   </TouchableOpacity>
    </View>
    </View>
     
@@ -104,6 +104,11 @@ const styles = StyleSheet.create({
         color: '#333',
         marginTop: 5,
       },
+      link: {
+        width: '100%',
+        height: '100%',
+        textDecorationLine: 'none',
+      }
 });
 
 export default SalonButton;

@@ -12,6 +12,7 @@ function Services() {
     const location = useLocation();
 
     if (location.state == null) {
+        console.log(location);
         console.log("Error: State is null, select one of the buttons on the main page");
         return <>{<Navigate to="/" />}</>;
     }

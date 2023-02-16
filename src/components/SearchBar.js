@@ -18,8 +18,10 @@ const SearchBar = () => {
       <CitySelector></CitySelector>
       <View style={styles.spacer} />
      <SalonButton></SalonButton>
-     <View style={styles.spacer} />
+     {/* <View style={styles.spacer} /> */}
       <button onClick={() => navigate('PostYourBusiness')} style={styles.buttonText}><Text style={styles.labelService}>Post your business</Text></button>
+     <View style={styles.spacer} />
+     <View style={styles.spacer} />
      <View style={styles.spacer} />
 
      {/* <NavigationBar></NavigationBar> */}

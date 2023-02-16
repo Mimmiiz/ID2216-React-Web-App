@@ -21,7 +21,7 @@ import { useNavigate } from 'react-router-dom';
     <SafeAreaView style={{ flex: 1 }}>
     <View style={styles.container}>
     <Text style={styles.labelService}><h2>Post Your Business</h2></Text>
-      <BusinessSelector></BusinessSelector>
+      <BusinessSelector/>
       <TextInput
         style={styles.inputboxDesc}
         placeholder="Description of service"
@@ -132,13 +132,11 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       width: '100%',
       padding: 30,
-      backgroundColor: '#F2F2F2',
     },
     spacer: {
       height: 40,
     },
     labelService: {
-        backgroundColor: '#F0EEEE',
         borderRadius: 45,
         fontSize: 20,
         fontWeight: 'bold'
@@ -182,15 +180,14 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
     buttonText: {
-      backgroundColor: '#333',
-      padding: 10,
+      border: 'none',
+      backgroundColor: '#555555',
+      padding: 12,
       borderRadius: 40,
       alignItems: 'center',
       width: '100',
     },
     confirmButton: {
-      backgroundColor: '#333',
-      borderRadius: 5,
       fontSize: 18,
       fontWeight: 'bold',
       color: '#F0EEEE', 

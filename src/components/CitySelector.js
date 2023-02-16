@@ -33,8 +33,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    padding: 30,
-    backgroundColor: '#F2F2F2',
+    padding: 30
   },
   label: {
     fontWeight: 'bold',

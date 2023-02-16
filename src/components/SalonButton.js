@@ -65,8 +65,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        padding: 30,
-        backgroundColor: '#F2F2F2',
+        padding: 30
     },
     row: {
         flexDirection: 'row',
@@ -78,7 +77,6 @@ const styles = StyleSheet.create({
         height: 20,
       },
     labelService: {
-        backgroundColor: '#F0EEEE',
         borderRadius: 5,
         fontSize: 20,
         fontWeight: 'bold'

@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
         height: 20,
       },
       labelService: {
-        backgroundColor: '#333',
         borderRadius: 5,
         fontSize: 18,
         fontWeight: 'bold',
@@ -58,8 +57,9 @@ const styles = StyleSheet.create({
         height: 650,
       },
       buttonText: {
-        backgroundColor: '#333',
-        padding: 10,
+        backgroundColor: '#555555',
+        border: 'none',
+        padding: 12,
         borderRadius: 40,
         alignItems: 'center',
         width: '100',

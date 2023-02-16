@@ -24,10 +24,6 @@
     padding-right: 13px;
 }
 
-.details-item-1 {
-    height: 50px;
-}
-
 .details-item-2 {
     grid-column-start: 1;
     grid-column-end: 2;

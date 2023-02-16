@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Home from './Home';
 import Confirmation from './Confirmation';
 import Services from './Services';
 import ServicePersonList from './ServicePersonList';
@@ -18,8 +17,8 @@ function App() {
     <div className='App'>
       <Routes>
         <Route path="/" element={<SearchBar />} />
-        <Route exact path='/services' element={<Services/>} />
-        <Route exact path='/service-persons' element={<ServicePersonList/>} />
+        <Route exact path='/services' element={<React.Fragment><BackArrow linkTo={"/"}/><Services/></React.Fragment>} />
+        <Route exact path='/service-persons' element={<React.Fragment><BackArrow linkTo={"/services"}/><ServicePersonList/></React.Fragment>} />
         <Route exact path='/service-persons-details' element={<React.Fragment><BackArrow linkTo={"/service-persons"}/><ServicePersonDetails/><Navbar/></React.Fragment>} />
         <Route exact path='/checkout' element={<React.Fragment><BackArrow linkTo={"/service-persons-details"}/><Checkout/></React.Fragment>} />
         <Route exact path='/confirmation' element={<Confirmation/>} />

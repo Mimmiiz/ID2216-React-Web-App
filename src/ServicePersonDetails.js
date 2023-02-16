@@ -53,7 +53,7 @@ function ServicePersonDetails() {
 
     return (
         <div className="ServicePersonDetails">
-            <div className="details-item details-item-1"></div>
+            <div className="details-item details-item-1"><h1>Book a time</h1></div>
             <div className="details-item details-item-2">
                 <img className="profile-picture" src="avatar.svg" alt="Avatar"/>
             </div>

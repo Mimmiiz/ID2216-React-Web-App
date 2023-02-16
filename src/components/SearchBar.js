@@ -35,8 +35,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    padding: 30,
-    backgroundColor: '#F2F2F2',
+    padding: 30
   },
   spacer: {
     height: 20,
@@ -57,19 +56,19 @@ const styles = StyleSheet.create({
     height: 44,
   },
   labelService: {
-    backgroundColor: '#333',
-    borderRadius: 5,
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#F0EEEE', 
+    color: 'white'
 },
 buttonText: {
-  backgroundColor: '#333',
-  padding: 10,
+  backgroundColor: '#555555',
+  padding: 15,
   borderRadius: 40,
   alignItems: 'center',
   width: '100',
+  border: 'none',
 },
 });
+
 
 export default SearchBar;

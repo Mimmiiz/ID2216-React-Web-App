@@ -34,8 +34,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 30,
-    backgroundColor: '#F2F2F2',
+    padding: 30
   },
   label: {
     fontWeight: 'bold',

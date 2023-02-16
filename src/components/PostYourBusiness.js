@@ -149,6 +149,7 @@ const styles = StyleSheet.create({
     inputbox: {
       height: 40,
       width: '100%',
+      backgroundColor: '#fff',
       borderColor: 'gray', 
       borderWidth: 3,
       borderRadius: 45,
@@ -159,6 +160,7 @@ const styles = StyleSheet.create({
     inputboxDesc: {
       height: 100,
       width: '100%',
+      backgroundColor: '#fff',
       borderColor: 'gray', 
       borderWidth: 3,
       borderRadius: 45,

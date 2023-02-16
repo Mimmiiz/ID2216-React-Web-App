@@ -63,14 +63,14 @@ const styles = StyleSheet.create({
     container:{
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         width: '100%',
-        padding: 30
+        padding: 30,
     },
     row: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         width: '100%',
     },
     spacer: {
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
         width: 125,
         height: 125,
         borderRadius: 40,
+        margin: 5,
         overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center',

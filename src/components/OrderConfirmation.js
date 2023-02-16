@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
       },
 
       image: {
-        width: 350,
+        width: 250,
         height: 650,
       },
       buttonText: {

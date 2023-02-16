@@ -3,9 +3,9 @@ import { View, Picker, StyleSheet } from 'react-native';
 
 const cities = [
   { label: 'Select a city', value: '' },
-  { label: 'Kista', value: 'NY' },
-  { label: 'T-Central', value: 'LDN' },
-  { label: 'Tekniska Hogskolan', value: 'PAR' },
+  { label: 'Kista', value: 'C1' },
+  { label: 'T-Central', value: 'C2' },
+  { label: 'Tekniska Hogskolan', value: 'C3' },
 ];
 
 const CitySelector = () => {

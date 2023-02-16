@@ -1,7 +1,7 @@
 import React, {} from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 import { useNavigate } from 'react-router-dom';
-
+import  Navbar from '../Navbar';
 
 const OrderConfirmation = () => {
     const navigate = useNavigate();
@@ -15,7 +15,8 @@ const OrderConfirmation = () => {
         source={require('../images/BusinessDaigram.jpeg')}
         resizeMode="contain"
       />
-    <button onClick={() => navigate('/')} style={styles.buttonText}><Text style={styles.labelService}>Home</Text></button>
+    {/* <button onClick={() => navigate('/')} style={styles.buttonText}><Text style={styles.labelService}>Home</Text></button> */}
+    <Navbar></Navbar>
     </View>  
 
   );
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
         padding: 12,
         borderRadius: 40,
         alignItems: 'center',
-        width: '100',
+        width: '75%',
       },
 });
 

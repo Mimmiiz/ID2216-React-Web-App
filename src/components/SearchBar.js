@@ -3,6 +3,7 @@ import { View, SafeAreaView,
   Text, StyleSheet} from 'react-native';
 import SalonButton from './SalonButton';
 import NavigationBar from './NavigationBar';
+import Navbar from '../Navbar';
 import { useNavigate } from 'react-router-dom';
 import CitySelector from './CitySelector';
 
@@ -21,8 +22,8 @@ const SearchBar = () => {
       <button onClick={() => navigate('PostYourBusiness')} style={styles.buttonText}><Text style={styles.labelService}>Post your business</Text></button>
      <View style={styles.spacer} />
 
-     <NavigationBar></NavigationBar>
-
+     {/* <NavigationBar></NavigationBar> */}
+     <Navbar></Navbar>
     </View>
     </SafeAreaView>
   );

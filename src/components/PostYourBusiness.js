@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, TextInput,  Text, StyleSheet } from 'react-native';
 import BusinessSelector from './BusinessSelector';
-import { useNavigate } from 'react-router-dom';
-  
+import { useNavigate } from 'react-router-dom';  
 
   const PostYourBusiness = () => {
     const navigate = useNavigate ();
@@ -185,7 +184,8 @@ const styles = StyleSheet.create({
       padding: 12,
       borderRadius: 40,
       alignItems: 'center',
-      width: '100',
+      width: '75%',
+      
     },
     confirmButton: {
       fontSize: 18,

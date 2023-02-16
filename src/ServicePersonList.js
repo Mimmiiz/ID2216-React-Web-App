@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { createRef, useEffect, useState } from "react";
 import "./index.css";
-import image from './avatar.jpg'
+import image from './images/avatar.jpg'
 import Search from './Search';
 import './styles/ServicePersonList.css';
 import { useParams } from 'react-router-dom';
@@ -24,7 +24,7 @@ function Avatar(){
 
 function PersonBlock(){
   return(
-    <Link className='PersonBlock' to="/ServicePersonDetails">
+    <Link className='PersonBlock' to="/service-persons-details">
         {/* <img src='./avatar.jpg'></img> */}
         <Avatar/>
         <div className="PersonInfo">
